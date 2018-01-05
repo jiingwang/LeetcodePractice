@@ -65,3 +65,22 @@ var addBinary = function(a, b) {
     return resultArr.reverse().join('');
 };
 
+
+/**
+ * num: 69 
+ * title: Sqrt(x)
+ * description: mplement int sqrt(int x).Compute and return the square root of x.x is guaranteed to be a non-negative integer.
+ * solution: 
+ * 
+* @param {number} x
+ * @return {number}
+ */
+var mySqrt = function(x) {
+    if (x===0 || x===1) {return x}
+    for (var i=1; i<=Math.ceil(x/2); i++) {
+        if ((x >= i*1) && (x < (i+1)*(i+1))) {
+            return i;
+        }
+    }
+};
+
