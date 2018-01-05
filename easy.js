@@ -84,3 +84,33 @@ var mySqrt = function(x) {
     }
 };
 
+
+
+/**
+ * num: 70 
+ * title: Climbing Stairs
+ * description: You are climbing a stair case. It takes n steps to reach to the top.
+ * Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
+ * Note: Given n will be a positive integer.
+ * solution: 
+ * 
+ * @param {number} n
+ * @return {number}
+ */
+var climbStairs = function(n) {
+    let ways = 0;
+    function getWays(x) {
+        if (x >=2 ) {
+            getWays(x-1);
+            getWays(x-2);
+        } else {
+            ways += 1;
+        }
+    }
+    if (n <= 2) {return n;}
+    getWays(n);
+    return ways;
+};
+
+console.log(climbStairs(55));
+
