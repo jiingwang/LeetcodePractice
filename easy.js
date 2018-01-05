@@ -27,3 +27,41 @@ var plusOne = function(digits) {
     }
     return digits;
 };
+
+
+/**
+ * num: 67 
+ * title: Add Binary
+ * description: Given two binary strings, return their sum (also a binary string).
+ * solution: 
+ * 
+ * @param {string} a
+ * @param {string} b
+ * @return {string}
+ */
+var addBinary = function(a, b) {
+    let arrA = a.split('');
+    let arrB = b.split('');
+    let resultArr = [];
+    let emptyArr = [];
+    if (arrA.length > arrB.length) {
+        emptyArr = Array.apply(null, {length: arrA.length - arrB.length}).map(value => '0');
+        arrB = emptyArr.concat(arrB);
+    } else {
+        emptyArr = Array.apply(null, {length: arrB.length - arrA.length}).map(value => '0');
+        arrA = emptyArr.concat(arrA);
+    }
+    let i = 0;
+    let plusResult = 0;
+    while(i < arrA.length) {
+        let temp = plusResult + arrA[arrA.length-i-1]*1 + arrB[arrB.length-i-1]*1;
+        resultArr[i] = temp%2;
+        plusResult = Math.floor(temp/2);
+        i++;
+    }
+    if (plusResult === 1) {
+        resultArr[arrA.length] = 1;
+    }
+    return resultArr.reverse().join('');
+};
+
