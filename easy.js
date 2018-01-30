@@ -114,3 +114,44 @@ var climbStairs = function(n) {
 
 console.log(climbStairs(55));
 
+
+
+
+/**
+ * num: 83 
+ * title: Remove Duplicates from Sorted List
+ * description: Given a sorted linked list, delete all duplicates such that each element appear only once.
+ * solution: 
+ */
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+var deleteDuplicates = function(head) {
+    if (!head) {return head;}
+    var uniqueArr = [];
+    var cpHead = head;
+    uniqueArr.push(cpHead.val);
+    while(!!cpHead && !!cpHead.next) {
+        if(uniqueArr.indexOf(cpHead.next.val) === -1) {
+            uniqueArr.push(cpHead.next.val);
+            cpHead = cpHead.next;
+        } else {
+            let tempNode = cpHead.next;
+            if (!!cpHead.next.next) {
+                cpHead.next = cpHead.next.next;
+            } else {
+                cpHead.next = null;
+             }
+            tempNode.next = '';
+        }
+    }
+    return head;
+};
